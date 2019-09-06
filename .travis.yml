@@ -2,7 +2,7 @@ language: csharp
 solution: ExpressMapper.sln
 install:
   - nuget restore ExpressMapper.sln
-  - nuget install NUnit.Runners -Version 3.4.1 -OutputDirectory testrunner
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release ExpressMapper.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe "./ExpressMapper.Tests NET45/bin/Release/ExpressMapper.Tests.dll"
+  - msbuild /p:Configuration=Release ExpressMapper.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe "./ExpressMapper.Tests NET45/bin/Release/ExpressMapper.Tests.dll"
